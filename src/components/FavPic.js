@@ -9,13 +9,6 @@ const FavPic = ({oneFav}) => {
         const fileteredArray = fav.filter(oneFav => oneFav.id !== id);
         return setFav(fileteredArray);
     }
-    console.log(fav)
-    // return (
-    //     <article className='photo'>
-    //         <img src={oneFav.img} alt="ok" />
-    //         <button onClick={() => {deleteFavorite(oneFav.id)}} >  <FaTrash color='white' fontSize='20px' /> </button>
-    //     </article>
-    // )
     return(
 
         <VStack
@@ -26,13 +19,13 @@ const FavPic = ({oneFav}) => {
         >
             <Image
             src={oneFav.img} 
-            w={[270, 270 , 250, 250]}
+            w={[250, 230 , 250, 210]}
             h={300}
             borderTopRadius={15}
             />
             <Center
             borderBottomRadius={15}
-            w={[270, 270 , 250, 250]}
+            w={[250, 230 , 250, 210]}
             h={30}
             p={5}
             variant='ghost'

@@ -8,6 +8,7 @@ const Footer = () => {
     justifyContent='center'
     alignItems='center'
     w='100%'
+    m='5px'
     >
         <Text
         alignItems='center'

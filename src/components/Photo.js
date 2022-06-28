@@ -9,25 +9,21 @@ const Photo = ({theImg}) => {
     }
     console.log(fav)
     return (
-            // <article className='photo'>
-            //     <img src={theImg.urls.full} alt="ok" />
-            //     <button onClick={() => {addFav(theImg.id)}} >  <FaHeart color='#f3f4f8' fontSize='20px' /> </button>
-            // </article>  
             <VStack
             spacing={0}
+            m='20px'
+            align='center'
             mx='auto'
-            mt={5}
-            mb={5}
             >
                 <Image
                 src={theImg.urls.full} 
-                w={[270, 270 , 250, 250]}
+                w={[250, 230 , 250, 210]}
                 h={300}
                 borderTopRadius={15}
                 />
                 <Center
                 borderBottomRadius={15}
-                w={[270, 270 , 250, 250]}
+                w={[250, 230 , 250, 210]}
                 h={30}
                 p={5}
                 variant='ghost'

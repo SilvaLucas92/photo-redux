@@ -15,7 +15,7 @@ function App() {
       {isLoading && <Loading />}
       {!isLoading && !showFav && img && <PhotoList />}
       {!isLoading && showFav && <Favorites /> }
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

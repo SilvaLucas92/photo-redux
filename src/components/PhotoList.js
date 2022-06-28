@@ -3,29 +3,10 @@ import Photo from './Photo';
 import {BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill} from 'react-icons/bs'
 import { useGlobalContext } from './context';
 import { Loading } from './Loading'
-import { Flex, HStack } from '@chakra-ui/react';
+import { Flex, HStack, IconButton, Stack } from '@chakra-ui/react';
 export const PhotoList = () => {
     const {img, setPage, page} = useGlobalContext();
     return (
-    // <>
-    //     <section className='photos'>
-    //         <div className='div-arrow'>
-    //             <BsFillArrowLeftSquareFill onClick={() => {setPage(page === 1? 1 : page - 1)}} color='#101223' fontSize='35px' cursor='pointer'/>
-    //             <h2>Home</h2>
-    //             <BsFillArrowRightSquareFill onClick={() => {setPage(page + 1)}} color='#101223' fontSize='35px' cursor='pointer'/>       
-    //         </div>
-    //         <div className="div-art2"> 
-    //             {!img && <Loading />}
-    //                     {img && (
-    //                         img.map(theImg => {
-    //                             return(
-    //                                 <Photo key={theImg.id}  theImg={theImg} />
-    //                             )
-    //                         })
-    //                     )} 
-    //         </div>                            
-    //     </section>
-    //     </> 
         <>
         <HStack
             w='80%'
@@ -33,14 +14,28 @@ export const PhotoList = () => {
             p={10}
             justifyContent='space-between'
             alignItems='center'>
-            <BsFillArrowLeftSquareFill onClick={() => {setPage(page === 1? 1 : page - 1)}} color='#f3f4f8' fontSize='35px' cursor='pointer'/>
-            <BsFillArrowRightSquareFill onClick={() => {setPage(page + 1)}} color='#f3f4f8' fontSize='35px' cursor='pointer'/> 
+            <IconButton icon={<BsFillArrowLeftSquareFill/>} onClick={() => {setPage(page === 1? 1 : page - 1)}} variant='solid' color='5b5d6b' fontSize='35px' cursor='pointer'/>
+            <IconButton icon={<BsFillArrowRightSquareFill/>} onClick={() => {setPage(page + 1)}} variant='solid' color='5b5d6b' fontSize='35px' cursor='pointer'/>
         </HStack>
-        <Flex
-        direction={{md:'row'}}
-        w='90%'
-        mx='auto'
-        wrap='wrap'
+        <Stack
+            spacing={{
+            base: 5,
+            }}
+            display={{
+            sm: "grid",
+            }}
+            gridTemplateColumns={{
+            sm:"repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            xl: "repeat(5,1fr)",
+            }}
+            gridColumnGap={{
+            sm: 2,
+            }}
+            gridRowGap={{
+            sm: 2,
+            }}
+            mx='auto'
         >
             {!img && <Loading />}
             {img && (
@@ -50,7 +45,7 @@ export const PhotoList = () => {
                                 )
                             })
                         )} 
-        </Flex>
+        </Stack>
         </>
     )
 }
