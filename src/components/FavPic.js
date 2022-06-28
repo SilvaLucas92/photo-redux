@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Center, VStack, Image } from '@chakra-ui/react'
 import { FaTrash } from 'react-icons/fa'
 import { useGlobalContext } from './context'
-const FavPic = ({oneFav}) => {
-
+const FavPic = ({oneFav, setErrorMsg}) => {
     const {setFav, fav} = useGlobalContext();
     const deleteFavorite = (id) => {
         const fileteredArray = fav.filter(oneFav => oneFav.id !== id);
+        setErrorMsg(true)
         return setFav(fileteredArray);
     }
     return(
-
         <VStack
         spacing={0}
         mx='auto'

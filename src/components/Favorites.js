@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import FavPic from './FavPic'
+import AlertMsg from './AlertMsg';
 import { useGlobalContext } from './context'
-import { Stack, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 export const Favorites = () => {
-    const {fav, setFav} = useGlobalContext()
+    const {fav, setFav} = useGlobalContext();
+    const [ errorMsg, setErrorMsg ] = useState(false)
     return (
-        <Stack
+        <>
+        {fav.length === 0 &&
+        (<Heading
+        m={250}
+        mx='auto'
+        textAlign='center'>
+            No tenes favoritos
+        </Heading>
+        )}
+        { errorMsg &&  <AlertMsg errorMsg={errorMsg} setErrorMsg={setErrorMsg} />}
+        <Box
             spacing={{
             base: 5,
             }}
@@ -24,23 +36,16 @@ export const Favorites = () => {
             sm: 5,
             }}
             mx='auto'
-            display='flex'
         >
-            {fav.length === 0 &&
-            (<Heading
-            m={250}
-            mx='auto'
-            textAlign='center'>
-                No tenes favoritos
-            </Heading>)}
             {fav.length > 0 && (
                 fav.map((oneFav) => {
                         return(
-                            <FavPic key={oneFav.id} oneFav={oneFav}  setFav={setFav}  fav={fav}/>
+                            <FavPic setErrorMsg={setErrorMsg} errorMsg={errorMsg} key={oneFav.id} oneFav={oneFav}  setFav={setFav}  fav={fav}/>
                         )
                     })
             )}
-        </Stack>
+        </Box>
+        </>
     )
 }
 
