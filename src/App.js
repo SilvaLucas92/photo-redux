@@ -4,8 +4,8 @@ import { Navbar } from './components/Navbar';
 import { PhotoList } from './components/PhotoList';
 import {Favorites} from './components/Favorites';
 import {useGlobalContext} from './components/context'
-import { Loading } from './components/Loading.js'
-import Footer from './components/Footer';
+import  Loading  from './components/Loading.js'
+
 function App() {
   
   const {img, isLoading, showFav} = useGlobalContext();
@@ -15,7 +15,6 @@ function App() {
       {isLoading && <Loading />}
       {!isLoading && !showFav && img && <PhotoList />}
       {!isLoading && showFav && <Favorites /> }
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,9 +1,18 @@
-export function Loading() {
-    return(
-        <section className="spinner">
-            <div className="loadingio-spinner-pulse-pt0ikr4jrgl"><div class="ldio-as3oqut7qn5">
-            <div></div><div></div><div></div>
-            </div></div>
-        </section>
-    )
+import { Spinner, Center } from '@chakra-ui/react'
+import React from 'react'
+
+const Loading = () => {
+  return (
+    <Center>
+        <Spinner 
+        size='xl'
+        m={250}
+        mx='auto'
+        textAlign='center'>
+
+        </Spinner>
+    </Center>
+  )
 }
+
+export default Loading

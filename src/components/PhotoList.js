@@ -2,7 +2,7 @@ import React from 'react'
 import Photo from './Photo';
 import {BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill} from 'react-icons/bs'
 import { useGlobalContext } from './context';
-import { Loading } from './Loading'
+import Loading  from './Loading'
 import { Flex, HStack, IconButton, Stack } from '@chakra-ui/react';
 export const PhotoList = () => {
     const {img, setPage, page} = useGlobalContext();
