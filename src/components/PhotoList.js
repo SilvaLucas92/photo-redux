@@ -16,6 +16,7 @@ export const PhotoList = () => {
             p={10}
             justifyContent='space-between'
             alignItems='center'>
+            {alert && <AlertMsg setAlert={setAlert} alert={alert} />}
             <IconButton icon={<BsFillArrowLeftSquareFill/>} onClick={() => {setPage(page === 1? 1 : page - 1)}} variant='solid' color='5b5d6b' fontSize='35px' cursor='pointer'/>
             <IconButton icon={<BsFillArrowRightSquareFill/>} onClick={() => {setPage(page + 1)}} variant='solid' color='5b5d6b' fontSize='35px' cursor='pointer'/>
         </HStack>

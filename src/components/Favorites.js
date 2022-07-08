@@ -8,6 +8,7 @@ export const Favorites = () => {
     const [ errorMsg, setErrorMsg ] = useState(false)
     return (
         <>
+        { errorMsg &&  <AlertMsg errorMsg={errorMsg} setErrorMsg={setErrorMsg} />}
         {fav.length === 0 &&
         (<Heading
         m={250}
@@ -16,7 +17,6 @@ export const Favorites = () => {
             No tenes favoritos
         </Heading>
         )}
-        { errorMsg &&  <AlertMsg errorMsg={errorMsg} setErrorMsg={setErrorMsg} />}
         <Box
             spacing={{
             base: 5,
